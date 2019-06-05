@@ -1,4 +1,4 @@
-package kr.co.amano;
+package kr.co.address;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

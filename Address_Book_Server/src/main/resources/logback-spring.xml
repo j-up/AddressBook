@@ -38,7 +38,7 @@
 	<logger name="jdbc.resultsettable" level="ERROR" />
 	<logger name="jdbc.connection" level="ERROR" />
 	
-	<logger name="kr.co.amano" level="debug" additivity="false">
+	<logger name="kr.co.address" level="debug" additivity="false">
 		<appender-ref ref="FILE-AUDIT" />
 		<appender-ref ref="STDOUT" />
 	</logger>

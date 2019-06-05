@@ -17,11 +17,9 @@ public class LogWriterAOP {
 	Logger logger = LoggerFactory.getLogger(LogWriterAOP.class);
 	
 	/**
-	* @doc 				kr.co.amano.common.log.LogWriterAOP
 	* @description		Controller Logging Process     
 	* @param 			ProceedingJoinPoint 
 	* @return			Object
-	* @develop    		minjae_kang, 2019. 5. 21. 
 	*/
 	@Around("execution(* @org.springframework.stereotype.Controller *..*.*(..))")
 	public Object controllerLogging(ProceedingJoinPoint joinPoint) throws Throwable {
