@@ -25,6 +25,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import kr.co.address.common.exception.HMException;
+
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
 	public static String decode(String org, String eq, String ret, String els) {
@@ -1824,5 +1830,20 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
 	public static String getPartnerParkingId(String iLotArea, String dtInDate , String iID) {
 		return iLotArea+"_"+dtInDate.substring(0,8)+"_"+StringUtils.lpad(iID, 9, "0");
+	}
+	
+	public static JSONArray stringToJsonArray(String param, String key) {
+		JSONParser parser = new JSONParser();
+		
+		Object obj= null;
+		try {
+			obj = parser.parse( param );
+		} catch (org.json.simple.parser.ParseException e) {
+			throw new HMException("JSON format error", e);
+		}
+		JSONObject jsonObj = (JSONObject) obj;
+		JSONArray jsonArray = (JSONArray) jsonObj.get(key);
+		
+		return jsonArray;
 	}
 }

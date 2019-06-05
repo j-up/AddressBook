@@ -3,8 +3,6 @@ package kr.co.address.domain;
 import java.io.Serializable;
 
 /**
- * @author 		minjae_kang
- * @Date  	 	2019. 5. 22. 
  * @description API 응답 공통 멤버		
  */
 public class CommonApiVO implements Serializable{

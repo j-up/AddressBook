@@ -30,7 +30,7 @@ public class LogWriterAOP {
 			res = joinPoint.proceed();
 			logger.info("********** after controller ************");
 		} catch (Exception e) {
-
+			logger.error("logWriter Error");
 		}
 
 		return res;

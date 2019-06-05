@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="logback.xsd">
+<configuration 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="logback.xsd"
+>
 
 	<property name="DEV_HOME" value="c:/logs" />
 

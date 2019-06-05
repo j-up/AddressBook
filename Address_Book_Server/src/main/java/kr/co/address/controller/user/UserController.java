@@ -10,24 +10,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.co.address.domain.UserVO;
 import kr.co.address.service.user.UserService;
 
-/** 
- * @description User CRUD 관련 Controller 		
+/**
+ * @description User CRUD 관련 Controller
  */
 @Controller
 public class UserController {
-	
+
 	@Autowired
-	UserService userService; 
-	
+	UserService userService;
+
 	/**
-	* @description		로그인    
-	* @param 			UserVO
-	* @return			UserVO 
-	*/
-	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	 * @description 로그인
+	 * @param UserVO
+	 * @return UserVO
+	 */
+
+	@RequestMapping(value = "/login", method = RequestMethod.PUT)
 	@ResponseBody
 	public UserVO userLogin(@RequestBody UserVO param) {
-		return userService.doList(param);
+		param = userService.doList(param);
+		param.setResultCode("ADR-200");
+		param.setResultMessage("Success");
+		return param;
 	}
 }
