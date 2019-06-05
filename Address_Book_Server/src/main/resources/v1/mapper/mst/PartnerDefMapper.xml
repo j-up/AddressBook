@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.amano.v1.mapper.mst.PartnerDefMapper">
+
+	<select id="doListMst" parameterType="PartnerDefVO" resultType="PartnerDefVO">
+		<![CDATA[
+		SELECT
+			 partnerId
+			, addr
+		FROM PARTNER_DEF
+		WHERE 1=1
+		]]>
+		<include refid="where"></include>
+	</select>
+
+	<sql id="where">
+
+		<if test="partnerId != null and partnerId != ''">
+			<![CDATA[
+			 AND partnerId = #{partnerId}
+			]]>
+		</if>
+		<if test="partnerKey != null and partnerKey != ''">
+			<![CDATA[
+			 AND partnerKey = #{partnerKey}
+			]]>
+		</if>
+		<if test="partnerId == null or partnerId == '' or partnerKey == null or partnerKey == ''">
+			<!-- AND 1=0 -->
+		</if>
+	</sql>
+</mapper>
