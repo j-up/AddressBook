@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.address.domain.UserVO;
+import kr.co.address.domain.user.UserVO;
 import kr.co.address.service.user.UserService;
 
 /**
@@ -27,7 +27,7 @@ public class UserController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.PUT)
 	@ResponseBody
-	public UserVO userLogin(@RequestBody UserVO param) {
+	public UserVO userPut(@RequestBody UserVO param) {
 		param = userService.doList(param);
 		param.setResultCode("ADR-200");
 		param.setResultMessage("Success");

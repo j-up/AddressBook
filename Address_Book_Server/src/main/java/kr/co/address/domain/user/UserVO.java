@@ -1,4 +1,4 @@
-package kr.co.address.domain;
+package kr.co.address.domain.user;
 
 import kr.co.address.domain.CommonApiVO;
 

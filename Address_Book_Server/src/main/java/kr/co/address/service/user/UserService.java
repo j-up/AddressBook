@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.address.common.utils.ProcCommonApi;
-import kr.co.address.domain.UserVO;
+import kr.co.address.domain.user.UserVO;
 import kr.co.address.mapper.user.UserMapper;
 
 @Service

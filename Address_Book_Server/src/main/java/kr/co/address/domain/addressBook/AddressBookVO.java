@@ -1,9 +1,13 @@
-package kr.co.address.domain;
+package kr.co.address.domain.addressBook;
+
+import java.util.ArrayList;
+
+import kr.co.address.domain.CommonApiVO;
 
 public class AddressBookVO extends CommonApiVO {
 	private String name;
 	private String phone;
-	private String user_group;
+	private String userGroup;
 	private String bookmark;
 	
 	public String getName() {
@@ -18,11 +22,11 @@ public class AddressBookVO extends CommonApiVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getUser_group() {
-		return user_group;
+	public String getUserGroup() {
+		return userGroup;
 	}
-	public void setUser_group(String user_group) {
-		this.user_group = user_group;
+	public void setUserGroup(String userGroup) {
+		this.userGroup = userGroup;
 	}
 	public String getBookmark() {
 		return bookmark;
@@ -30,5 +34,7 @@ public class AddressBookVO extends CommonApiVO {
 	public void setBookmark(String bookmark) {
 		this.bookmark = bookmark;
 	}
-	
+	public String toString() {
+		return name +" " + phone + " " + userGroup + " " + bookmark;  
+	}
 }

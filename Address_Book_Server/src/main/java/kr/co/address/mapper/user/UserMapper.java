@@ -1,6 +1,6 @@
 package kr.co.address.mapper.user;
 
-import kr.co.address.domain.UserVO;
+import kr.co.address.domain.user.UserVO;
 
 /**
  * @description 
