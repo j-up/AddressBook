@@ -3,18 +3,61 @@
 
 <mapper namespace="kr.co.address.mapper.addressBook.AddressBookMapper">
 
-	<update id="doInsert">
+<select id="doList" parameterType="AddressBookVO" resultType="AddressBookVO">
+		/* addressBookMapper.xml - doList */
+	<![CDATA[
+		SELECT
+	        id
+		    ,name
+            ,phone
+            ,userGroup
+            ,bookmark
+			FROM 	ADDRESS_BOOK
+			WHERE   1=1
+			AND     id = #{id}
+	]]>
+		<include refid="where"></include>
+	</select>
+
+	<sql id="where">
+
+		<if test="name != null and name != ''">
+			<![CDATA[
+			AND name = #{name}
+			]]>
+		</if>
+		<if test="phone != null and phone != ''">
+			<![CDATA[
+			AND phone = #{phone}
+			]]>
+		</if>
+		<if test="userGroup != null and userGroup != ''">
+			<![CDATA[
+			AND userGroup = #{userGroup}
+			]]>
+		</if>
+		<if test="bookmark != null and bookmark != ''">
+			<![CDATA[
+			AND bookmark = #{bookmark}
+			]]>
+		</if>
+	</sql>
+	
+	<update id="doInsert" parameterType="AddressBookVO">
 		/* addressBookMapper.xml - doInsert */
 	<![CDATA[	
 		 INSERT INTO ADDRESS_BOOK (
-		    name
+		    id
+		    ,name
             ,phone
-            ,user_group
+            ,userGroup
             ,bookmark
+            
 		) VALUES (
-		     #{name}
+			#{id}
+		    ,#{name}
             ,#{phone}
-            ,#{user_group}
+            ,#{userGroup}
             ,#{bookmark}
 		)
 		]]>

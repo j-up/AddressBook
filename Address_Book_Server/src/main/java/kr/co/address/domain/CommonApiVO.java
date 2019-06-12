@@ -48,5 +48,9 @@ public class CommonApiVO implements Serializable{
 		this.responseDateTime = responseDateTime;
 	}
 	
+	public void setSuccess() {
+		this.setResultCode("ADR-200");
+		this.setResultMessage("Success");
+	}
 	
 }

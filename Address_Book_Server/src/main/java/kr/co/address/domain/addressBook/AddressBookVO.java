@@ -4,12 +4,19 @@ import java.util.ArrayList;
 
 import kr.co.address.domain.CommonApiVO;
 
-public class AddressBookVO extends CommonApiVO {
+public class AddressBookVO {
+	private String id;
 	private String name;
 	private String phone;
 	private String userGroup;
 	private String bookmark;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

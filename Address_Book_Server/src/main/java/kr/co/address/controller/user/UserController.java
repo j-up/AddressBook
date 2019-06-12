@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.address.common.exception.FaultCode;
+import kr.co.address.common.exception.HMException;
+import kr.co.address.common.utils.StringUtils;
 import kr.co.address.domain.user.UserVO;
 import kr.co.address.service.user.UserService;
 
@@ -28,6 +31,9 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.PUT)
 	@ResponseBody
 	public UserVO userPut(@RequestBody UserVO param) {
+		if ( StringUtils.isEmpty(param.getId()) || StringUtils.isEmpty(param.getPassword()) ) {
+			new HMException(FaultCode.INVLID_REQUEST);
+		}
 		param = userService.doList(param);
 		param.setResultCode("ADR-200");
 		param.setResultMessage("Success");

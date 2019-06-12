@@ -16,8 +16,7 @@ public class UserService {
 	public UserVO doList(UserVO param) {
 		UserVO userVO = new UserVO();
 		userVO = userMapper.doList(param);
-		userVO.setResultCode("ADR-200");
-		userVO.setResultMessage("Success");
+		userVO.setSuccess();
 		return userVO;
 	}
 }

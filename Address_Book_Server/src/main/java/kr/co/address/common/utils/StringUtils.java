@@ -189,6 +189,18 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * 빈문자열 검사.
 	 * </pre>
 	 *
+	 * @param object
+	 * @return
+	 */
+	public static boolean isEmpty(Object input) {
+		return (input == null);
+	}
+	
+	/**
+	 * <pre>
+	 * 빈문자열 검사.
+	 * </pre>
+	 *
 	 * @param input
 	 * @return
 	 */
@@ -1830,20 +1842,5 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
 	public static String getPartnerParkingId(String iLotArea, String dtInDate , String iID) {
 		return iLotArea+"_"+dtInDate.substring(0,8)+"_"+StringUtils.lpad(iID, 9, "0");
-	}
-	
-	public static JSONArray stringToJsonArray(String param, String key) {
-		JSONParser parser = new JSONParser();
-		
-		Object obj= null;
-		try {
-			obj = parser.parse( param );
-		} catch (org.json.simple.parser.ParseException e) {
-			throw new HMException("JSON format error", e);
-		}
-		JSONObject jsonObj = (JSONObject) obj;
-		JSONArray jsonArray = (JSONArray) jsonObj.get(key);
-		
-		return jsonArray;
 	}
 }
