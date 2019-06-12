@@ -35,8 +35,7 @@ public class UserController {
 			new HMException(FaultCode.INVLID_REQUEST);
 		}
 		param = userService.doList(param);
-		param.setResultCode("ADR-200");
-		param.setResultMessage("Success");
+		
 		return param;
 	}
 }

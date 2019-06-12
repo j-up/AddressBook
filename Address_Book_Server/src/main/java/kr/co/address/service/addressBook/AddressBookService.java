@@ -21,7 +21,7 @@ public class AddressBookService {
 			addressBookMapper.doInsert(addressBookVo);
 		} 
 		CommonApiVO commonApiVo = new CommonApiVO();
-		commonApiVo.setSuccess(commonApiVo);
+		commonApiVo.setSuccess();
 		
 		return commonApiVo;
 	}
@@ -29,7 +29,7 @@ public class AddressBookService {
 	public AddressBookRtnVO doList(AddressBookVO param) {
 		AddressBookRtnVO addressBookRtnVo = new AddressBookRtnVO();
 		addressBookRtnVo.setAddressBookVoList(addressBookMapper.doList(param));
-		addressBookRtnVo.setSuccess(addressBookRtnVo);
+		addressBookRtnVo.setSuccess();
 		return addressBookRtnVo;
 	}
 }
