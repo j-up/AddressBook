@@ -1,10 +1,10 @@
 package kr.co.address.domain.addressBook;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-import kr.co.address.domain.CommonApiVO;
-
-public class AddressBookVO {
+public class AddressBookVO implements Serializable {
+	private static final long serialVersionUID = 2421823L;
+	
 	private String id;
 	private String name;
 	private String phone;

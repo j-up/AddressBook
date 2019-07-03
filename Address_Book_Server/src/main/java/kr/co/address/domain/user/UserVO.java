@@ -1,20 +1,16 @@
 package kr.co.address.domain.user;
 
-import kr.co.address.domain.CommonApiVO;
+import java.io.Serializable;
 
-public class UserVO extends CommonApiVO {
-	private String id;
-	private String username;
+
+public class UserVO implements Serializable {
+
+	private static final long serialVersionUID = 14235328L;
+
+	private String email;
 	private String password;
 	private String create_date;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getPassword() {
 		return password;
@@ -32,12 +28,11 @@ public class UserVO extends CommonApiVO {
 		this.create_date = create_date;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
 }

@@ -7,4 +7,6 @@ import kr.co.address.domain.user.UserVO;
  */
 public interface UserMapper {
 	public UserVO doList(UserVO param);
+	public int doIdCheck(UserVO param);
+	public int doInsert(UserVO param);
 }

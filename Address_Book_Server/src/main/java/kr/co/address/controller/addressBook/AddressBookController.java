@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.address.common.exception.ExHandler;
 import kr.co.address.common.exception.FaultCode;
-import kr.co.address.domain.CommonApiVO;
-import kr.co.address.domain.addressBook.AddressBookRtnVO;
+import kr.co.address.domain.addressBook.AddressBookListVO;
 import kr.co.address.domain.addressBook.AddressBookVO;
 import kr.co.address.service.addressBook.AddressBookService;
 
@@ -25,17 +24,16 @@ public class AddressBookController {
 
 	/**
 	 * @description 연락처 삽입
-	 * @param AddressBookRtnVO (ArrayList<AddressBookVO>)
+	 * @param AddressBookListVO (ArrayList<AddressBookVO>)
 	 * @return CommonApiVO
 	 */
 
 	@RequestMapping(value = "/addressBook/register", method = RequestMethod.POST)
 	@ResponseBody
-	public CommonApiVO setAddressBook(@RequestBody AddressBookRtnVO param) {
+	public int setAddressBook(@RequestBody AddressBookListVO param) {
 		ExHandler.exceptionNullMsg(param, FaultCode.INVLID_REQUEST);
 		
-		CommonApiVO commonApiVo = addressBookService.doInsert(param.getAddressBookVoList());
-		return commonApiVo;
+		return addressBookService.doInsert(param.getAddressBookListVo()); 
 		}
 	
 	
@@ -45,13 +43,12 @@ public class AddressBookController {
 	 * @return AddressBookRtnVO
 	 */
 	
-	@RequestMapping(value = "/addressBook/search", method = RequestMethod.PUT)
+	@RequestMapping(value = "/addressBook/search", method = RequestMethod.POST)
 	@ResponseBody
-	public AddressBookRtnVO getAddressBook(@RequestBody AddressBookVO param) {
+	public AddressBookListVO getAddressBook(@RequestBody AddressBookVO param) {
 		ExHandler.exceptionNullMsg(param, FaultCode.INVLID_REQUEST);
-		
-		AddressBookRtnVO addressBookRtnVO = addressBookService.doList(param);
-		return addressBookRtnVO;
+		// AddressBookListVO
+		return addressBookService.doList(param);
 		}
 	
 	

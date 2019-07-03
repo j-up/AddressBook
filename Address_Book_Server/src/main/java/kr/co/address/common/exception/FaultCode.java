@@ -12,6 +12,8 @@ public enum FaultCode {
 	, MANDANTORY_ERROR(HttpStatus.BAD_REQUEST ,"ADR-400-1000", "{key} Value is Mandantory")
 	, INVALID_FORMAT(HttpStatus.BAD_REQUEST ,"ADR-400-2000", "{key} Value is Invalid format : {Data Format}")
 	, LENGTH_INVALID(HttpStatus.BAD_REQUEST ,"ADR-400-3000", "{key} Value lenth is invalid : min : %d ")
+	, NO_CONTENT(HttpStatus.BAD_REQUEST, "401", "NO_CONTENT")
+	, INVLID_AUTHORIZATION(HttpStatus.BAD_REQUEST, "401", "INVLID_AUTHORIZATION")
 	, INVALID_CONNECT(HttpStatus.BAD_REQUEST, "ADR-42000", " INVALID CONNECT")
 	, INVLID_REQUEST(HttpStatus.BAD_REQUEST, "PTNR-400-001", "INVLID_REQUEST")	
 	;

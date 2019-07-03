@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.address.domain.CommonApiVO;
-import kr.co.address.domain.addressBook.AddressBookRtnVO;
+import kr.co.address.domain.addressBook.AddressBookListVO;
 import kr.co.address.domain.addressBook.AddressBookVO;
 import kr.co.address.mapper.addressBook.AddressBookMapper;
 
@@ -16,20 +15,17 @@ public class AddressBookService {
 	@Autowired
 	private AddressBookMapper addressBookMapper;
 	
-	public CommonApiVO doInsert(ArrayList<AddressBookVO> param) {
+	public int doInsert(ArrayList<AddressBookVO> param) {
 		for(AddressBookVO addressBookVo : param) {
 			addressBookMapper.doInsert(addressBookVo);
 		} 
-		CommonApiVO commonApiVo = new CommonApiVO();
-		commonApiVo.setSuccess();
 		
-		return commonApiVo;
+		return 1;
 	}
 	
-	public AddressBookRtnVO doList(AddressBookVO param) {
-		AddressBookRtnVO addressBookRtnVo = new AddressBookRtnVO();
-		addressBookRtnVo.setAddressBookVoList(addressBookMapper.doList(param));
-		addressBookRtnVo.setSuccess();
-		return addressBookRtnVo;
+	public AddressBookListVO doList(AddressBookVO param) {
+		AddressBookListVO addressBookListVo = new AddressBookListVO();
+		addressBookListVo.setAddressBookListVo(addressBookMapper.doList(param));
+		return addressBookListVo;
 	}
 }

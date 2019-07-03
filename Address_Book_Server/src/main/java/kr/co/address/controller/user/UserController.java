@@ -27,15 +27,42 @@ public class UserController {
 	 * @param UserVO
 	 * @return UserVO
 	 */
-
-	@RequestMapping(value = "/login", method = RequestMethod.PUT)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public UserVO userPut(@RequestBody UserVO param) {
-		if ( StringUtils.isEmpty(param.getId()) || StringUtils.isEmpty(param.getPassword()) ) {
+	public UserVO loginPost(@RequestBody UserVO param) {
+		if ( StringUtils.isEmpty(param.getEmail()) || StringUtils.isEmpty(param.getPassword()) ) {
 			new HMException(FaultCode.INVLID_REQUEST);
 		}
 		param = userService.doList(param);
-		
 		return param;
+	}
+	
+	/**
+	 * @description 로그인
+	 * @param UserVO
+	 * @return UserVO
+	 */
+	@RequestMapping(value = "/id/check", method = RequestMethod.POST)
+	@ResponseBody
+	public int idCheckPost(@RequestBody UserVO param) {
+		if ( StringUtils.isEmpty(param.getEmail()) ) {
+			new HMException(FaultCode.INVLID_REQUEST);
+		}
+		return userService.doIdCheck(param);
+	}
+	
+	/**
+	 * @description 회원가입 
+	 * @param UserVO
+	 * @return int
+	 */
+	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
+	@ResponseBody
+	public int signupPost(@RequestBody UserVO param) {
+		if ( StringUtils.isEmpty(param.getEmail()) || StringUtils.isEmpty(param.getPassword()) ) {
+			new HMException(FaultCode.INVLID_REQUEST);
+		}
+		
+		return userService.doInsert(param);
 	}
 }
