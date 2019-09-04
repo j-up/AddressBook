@@ -2,13 +2,13 @@ package kr.co.address.mapper.addressBook;
 
 import java.util.ArrayList;
 
-import kr.co.address.domain.addressBook.AddressBookListVO;
-import kr.co.address.domain.addressBook.AddressBookVO;
+import kr.co.address.domain.addressBook.AddressBookListModel;
+import kr.co.address.domain.addressBook.AddressBookModel;
 
 /**
  * @description 
  */
 public interface AddressBookMapper {
-	public int doInsert(AddressBookVO param);
-	public ArrayList<AddressBookVO> doList(AddressBookVO param);
+	public int doInsert(AddressBookModel param);
+	public ArrayList<AddressBookModel> doList(AddressBookModel param);
 }

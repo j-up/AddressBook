@@ -29,16 +29,15 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public UserVO loginPost(@RequestBody UserVO param) {
+	public int loginPost(@RequestBody UserVO param) {
 		if ( StringUtils.isEmpty(param.getEmail()) || StringUtils.isEmpty(param.getPassword()) ) {
 			new HMException(FaultCode.INVLID_REQUEST);
 		}
-		param = userService.doList(param);
-		return param;
+		return userService.doLogin(param);
 	}
 	
 	/**
-	 * @description 로그인
+	 * @description 중복확인
 	 * @param UserVO
 	 * @return UserVO
 	 */

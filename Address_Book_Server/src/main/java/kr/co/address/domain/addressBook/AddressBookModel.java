@@ -2,15 +2,22 @@ package kr.co.address.domain.addressBook;
 
 import java.io.Serializable;
 
-public class AddressBookVO implements Serializable {
+public class AddressBookModel implements Serializable {
 	private static final long serialVersionUID = 2421823L;
 	
+	private String address_id;
 	private String id;
 	private String name;
 	private String phone;
 	private String userGroup;
 	private String bookmark;
 	
+	public void setAddress_id(String address_id) {
+		this.address_id = address_id;
+	}
+	public String getAddress_id() {
+		return this.address_id;
+	}
 	public String getId() {
 		return id;
 	}

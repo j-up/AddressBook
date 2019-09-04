@@ -55,7 +55,7 @@ public class HeaderInterceptor implements HandlerInterceptor {
 
 		if (contentType == null) {
 			throw new HMException(FaultCode.NO_CONTENT);
-		} else if (!"application/json".equals(contentType)) {
+		} else if (!contentType.matches(".*application/json.*")) {
 			throw new HMException(FaultCode.NO_CONTENT);
 		}
 	}

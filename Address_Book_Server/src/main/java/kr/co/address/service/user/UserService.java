@@ -13,16 +13,18 @@ public class UserService {
 	@Autowired
 	private UserMapper userMapper;
 	
-	public UserVO doList(UserVO param) {
-		return userMapper.doList(param);
+	public int doLogin(UserVO param) {
+		param.setPassword(SHA256Util.encrypt(param.getPassword()));
+		return userMapper.doLogin(param);
 	}
 	
 	public int doInsert(UserVO param) {
+		param.setPassword(SHA256Util.encrypt(param.getPassword()));
 		return userMapper.doInsert(param);
 	}
 	
 	public int doIdCheck(UserVO param) {
-		//param.setPassword(SHA256Util.encrypt(param.getPassword()));
+		param.setPassword(SHA256Util.encrypt(param.getPassword()));
 		return userMapper.doIdCheck(param);
 	}
 }

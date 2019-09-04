@@ -3,13 +3,10 @@
 
 <mapper namespace="kr.co.address.mapper.user.UserMapper">
 	
-	<select id="doList" parameterType="UserVO" resultType="UserVO">
-		/* UserMapper.xml - doList */
+	<select id="doLogin" parameterType="UserVO" resultType="Int">
+		/* UserMapper.xml - doLogin */
 	<![CDATA[
-		SELECT
-	         email
-	        ,password
-	        ,create_date
+		SELECT id
 			FROM 	USERS
 			WHERE   1=1
 			AND     email = #{email}

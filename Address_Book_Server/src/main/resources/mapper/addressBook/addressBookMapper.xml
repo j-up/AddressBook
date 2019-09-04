@@ -3,24 +3,34 @@
 
 <mapper namespace="kr.co.address.mapper.addressBook.AddressBookMapper">
 
-<select id="doList" parameterType="AddressBookVO" resultType="AddressBookVO">
-		/* addressBookMapper.xml - doList */
+<select id="doList" parameterType="AddressBookModel" resultType="AddressBookModel">
+	
 	<![CDATA[
+		/* addressBookMapper.xml - doList */
 		SELECT
-	        id
+			address_id	
+	        ,id
 		    ,name
             ,phone
             ,userGroup
             ,bookmark
 			FROM 	ADDRESS_BOOK
 			WHERE   1=1
-			AND     id = #{id}
 	]]>
 		<include refid="where"></include>
 	</select>
 
 	<sql id="where">
-
+		<if test="address_id != null and address_id != ''">
+			<![CDATA[
+			AND address_id = #{address_id}
+			]]>
+		</if>
+		<if test="id != null and id != ''">
+			<![CDATA[
+			AND id = #{id}
+			]]>
+		</if>
 		<if test="name != null and name != ''">
 			<![CDATA[
 			AND name = #{name}
@@ -43,9 +53,9 @@
 		</if>
 	</sql>
 	
-	<update id="doInsert" parameterType="AddressBookVO">
-		/* addressBookMapper.xml - doInsert */
+	<update id="doInsert" parameterType="AddressBookModel">
 	<![CDATA[	
+		/* addressBookMapper.xml - doInsert */
 		 INSERT INTO ADDRESS_BOOK (
 		    id
 		    ,name

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.address.common.exception.ExHandler;
 import kr.co.address.common.exception.FaultCode;
-import kr.co.address.domain.addressBook.AddressBookListVO;
-import kr.co.address.domain.addressBook.AddressBookVO;
+import kr.co.address.domain.addressBook.AddressBookListModel;
+import kr.co.address.domain.addressBook.AddressBookModel;
 import kr.co.address.service.addressBook.AddressBookService;
 
 /**
@@ -24,28 +24,28 @@ public class AddressBookController {
 
 	/**
 	 * @description 연락처 삽입
-	 * @param AddressBookListVO (ArrayList<AddressBookVO>)
+	 * @param AddressBookListModel (ArrayList<AddressBookModel>)
 	 * @return CommonApiVO
 	 */
 
 	@RequestMapping(value = "/addressBook/register", method = RequestMethod.POST)
 	@ResponseBody
-	public int setAddressBook(@RequestBody AddressBookListVO param) {
+	public int setAddressBook(@RequestBody AddressBookListModel param) {
 		ExHandler.exceptionNullMsg(param, FaultCode.INVLID_REQUEST);
 		
-		return addressBookService.doInsert(param.getAddressBookListVo()); 
+		return addressBookService.doInsert(param.getAddressBookListModel()); 
 		}
 	
 	
 	/**
 	 * @description 연락처 조회 
-	 * @param AddressBookVO 
+	 * @param AddressBookModel 
 	 * @return AddressBookRtnVO
 	 */
 	
 	@RequestMapping(value = "/addressBook/search", method = RequestMethod.POST)
 	@ResponseBody
-	public AddressBookListVO getAddressBook(@RequestBody AddressBookVO param) {
+	public AddressBookListModel getAddressBook(@RequestBody AddressBookModel param) {
 		ExHandler.exceptionNullMsg(param, FaultCode.INVLID_REQUEST);
 		// AddressBookListVO
 		return addressBookService.doList(param);
